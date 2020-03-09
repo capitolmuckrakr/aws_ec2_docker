@@ -64,4 +64,4 @@ ubuntu@ip-xxx-xx-xx-xxx:~$ tail -f /var/log/instance-setup.log # the default pro
 
 The information will scroll by very quickly. Once the server is done setting everything up for the application, you'll be disconnected as the server reboots. Wait a few seconds for it to restart and you'll be able to join the server again with the 'connect' command.
 
-Note that the server is firewalled; you'll only be able to access it from the internet address of the client computer you used for the installation. To give other users access, you can add their IP addresses to the security group for the server and the database in the [AWS console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#SecurityGroups:sort=desc:ipPermissionsIngress).
+Note that the server is firewalled; you'll only be able to access it from the subnet of the client computer you used for the installation. To give other users access, you can add their IP addresses to the security group for the server in the [AWS console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#SecurityGroups:sort=desc:ipPermissionsIngress).
