@@ -8,12 +8,11 @@ exit 0;
 fi
 
 
-echo "waiting for $INSTANCEID ..."
 aws ec2 wait instance-running --instance-ids $INSTANCEID
 echo "ENDPOINT for $INSTANCEID is: $ENDPOINT"
 read -r -d '' instructions <<-EOF
 Type 'connect' to access the server, 'terminate_instance' to shut it down after exiting
-Type 'upload [FILE]' to send a file to the server.
+Type 'upload [FILE]' to send a file to the server, 'download [FILE]' to retrieve a file from the server.
 EOF
 
 echo "$instructions"
@@ -25,7 +24,11 @@ function instructions() {
 export oldPS1=$PS1
 function upload() {
     filepath=$1
-    scp -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -i $PEM $filepath ubuntu@${ENDPOINT}:/home/ubuntu/;
+    scp -C -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -i $PEM $filepath ubuntu@${ENDPOINT}:/home/ubuntu/;
+    }
+function download() {
+    remotefilepath=$1
+    scp -C -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -i $PEM ubuntu@${ENDPOINT}:/home/ubuntu/$remotefilepath ./;
     }
 function connect() {
     ssh -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -i $PEM ubuntu@${ENDPOINT}
@@ -62,3 +65,5 @@ export -f instructions
 export -f wait_terminate_instance
 export -f terminate_instance
 export -f upload
+export -f download
+export -f connect
