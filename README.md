@@ -2,7 +2,7 @@ This project will create a remote AWS EC2 instance running the latest LTS versio
 
 You'll need to create a new AWS account if you don't have one.
 
-The installation instructions are written for a user running a terminal with a <b title="The default shell isn't always bash, for example on Ubuntu it's Dash and on Mac OSX Mojave it's zsh. Don't use a plain shell, but bash, zsh, tcsh, fish should all work, though the Docker install script only installs completion for bash.">Bash shell</b> on an internet-connected client computer. If it's not already setup on the client computer, install the [AWS Command Line Interface \(AWS CLI\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and configure it for your account. You can also use an alternate AWS IAM profile for the installation if one exists and has been set up in your account credentials \(see [below](#gs_profile) for instructions on how to enable this\).
+The installation instructions are written for a user running a terminal with a <b title="The default shell isn't always bash, for example on Ubuntu it's Dash and on Mac OSX Mojave it's zsh. Don't use a plain shell, but bash, zsh, tcsh, fish should all work, though the Docker install script only installs completion for bash.">Bash shell</b> on an internet-connected client computer. If it's not already setup on the client computer, install the [AWS Command Line Interface \(AWS CLI\)](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) and configure it for your account. You can also use an alternate AWS IAM profile for the installation if one exists and has been set up in your account credentials \(see [below](#profile) for instructions on how to enable this\).
 
 As an example, we'll put the install scripts into a folder below our "home" directory on our client computer. On Mac OS, the home directory is '/Users/myusername,' on Linux systems it's usually '/home/myusername,' and most systems will drop you right into it when you open a Bash terminal. We'll refer to the home directory using the built-in shortcut '~/' for both Mac and Linux. Note that you can place the directories anywhere you like where your account has full read and write privileges. For example, I create a 'scripts' directory inside my home directory on every system I use and then put my project directories inside it.
 
@@ -31,6 +31,14 @@ You'll need to assign the location of your key pair file to the environment vari
 ```
 ~/aws_ec2_docker$ export PEM='~/mykey.pem'
 ```
+
+To use an alternate IAM <a name="profile">profile</a> for the installation, assign the 'profile' environment variable. You'll first need to setup the AWS CLI to use an IAM role by editing your ~/.aws/config, see the AWS CLI documentation on [IAM roles](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-role.html) for more information.
+
+For example, to run the installation using a profile named projectrole, assign the profile variable like this:
+
+```
+~/cnn-fec-aws-bootstrap$ export profile='projectrole'
+
 The server installation script uses default values for parameters used to create the EC2 instance.  Optionally, the default values for one or more parameters can be overwritten by assigning the environment variable for the parameter before running the script, again using the 'export VAR=value' syntax.
 
 The variables and their corresponding default values are listed, along with a description of the parameters they control:
