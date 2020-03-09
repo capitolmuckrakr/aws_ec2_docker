@@ -12,6 +12,7 @@ To start the installation, open the terminal now and from your home directory, c
 ~$ #Commands are entered following the '$' sign for most prompts.
 ~$ #If you're cutting and pasting the commands, paste after the '$' to the end of the line.
 ~$ cd ~/aws_ec2_docker
+```
 
 ##<a name="gs_create_server">Creating and configuring the docker server instance</a>
 Before creating our server, we need to choose a key pair, a file containing public and private keys that we will use to access the server. The file name for the key pair should match the key pair name and should be a PEM file with the '.pem' extension. Ideally, it's best not to include any spaces or dashes in the file name.
