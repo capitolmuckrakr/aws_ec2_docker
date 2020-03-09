@@ -14,7 +14,8 @@ To start the installation, open the terminal now and from your home directory, c
 ~$ cd ~/aws_ec2_docker
 ```
 
-##<a name="gs_create_server">Creating and configuring the docker server instance</a>
+## Creating and configuring the docker server instance
+
 Before creating our server, we need to choose a key pair, a file containing public and private keys that we will use to access the server. The file name for the key pair should match the key pair name and should be a PEM file with the '.pem' extension. Ideally, it's best not to include any spaces or dashes in the file name.
 
 If you don't already have a key pair in your AWS account you want to use, you can create one or import an existing key by visiting the [key pair page](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#KeyPairs:) in the AWS console, under the EC2 service. For example, visit the page and create a new key pair named 'mykey' and save it using the console dialog window that appears. Move the resulting file named 'mykey.pem' to your client machine and save it in your home directory. You'll need to change the access permissions of the key file to be read-only for just the owner before you can use it. This ensures that the file is only usable under your specific user account. To view and change the permissions, type the following commands:
