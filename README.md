@@ -37,7 +37,7 @@ To use an alternate IAM <a name="profile">profile</a> for the installation, assi
 For example, to run the installation using a profile named projectrole, assign the profile variable like this:
 
 ```
-~/cnn-fec-aws-bootstrap$ export profile='projectrole'
+~/aws_ec2_docker$ export profile='projectrole'
 ```
 
 The server installation script uses default values for parameters used to create the EC2 instance.  Optionally, the default values for one or more parameters can be overwritten by assigning the environment variable for the parameter before running the script, again using the 'export VAR=value' syntax.
