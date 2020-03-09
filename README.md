@@ -58,9 +58,10 @@ Once the server is created, the terminal will print out a message. It will look 
 Although the server has been created, it needs a couple of minutes to install and setup Docker. You can monitor the installation progress by connecting to the server and reading the install log. Follow the instructions and enter 'connect' to log in to the server. Once connected, you can follow the setup progress by tailing the install log.
 
 To view the install log as it gets updated, type the following command:
-   
-   ubuntu@ip-xxx-xx-xx-xxx:~$ tail -f /var/log/instance-setup.log # the default prompt for the new server is derived from its internet address.
-   
+```
+ubuntu@ip-xxx-xx-xx-xxx:~$ tail -f /var/log/instance-setup.log # the default prompt for the new server is derived from its internet address.
+```
+
 The information will scroll by very quickly. Once the server is done setting everything up for the application, you'll be disconnected as the server reboots. Wait a few seconds for it to restart and you'll be able to join the server again with the 'connect' command.
 
 Note that the server is firewalled; you'll only be able to access it from the internet address of the client computer you used for the installation. To give other users access, you can add their IP addresses to the security group for the server and the database in the [AWS console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#SecurityGroups:sort=desc:ipPermissionsIngress).
