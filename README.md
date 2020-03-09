@@ -10,7 +10,7 @@ To start the installation, open the terminal now and from your home directory, c
 ```
 ~$ #Your 'prompt' may look different, depending on your client system settings.
 ~$ #Commands are entered following the '$' sign for most prompts.
-~$ #If you're cutting and pasting the commands, paste after the '$' to the end of the line.
+~$ #If you're cutting and pasting the commands, select after the '$' to the end of the line.
 ~$ cd ~/aws_ec2_docker
 ```
 
