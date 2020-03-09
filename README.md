@@ -37,11 +37,11 @@ The variables and their corresponding default values are listed, along with a de
 
 **AMIID** -- the ID of the Amazon Machine Image used to launch the instance. The default is the most recent HVM image from the latest LTS version of Ubuntu Server. When setting a different image, choose an HVM Ubuntu one. You can read more about Amazon Machine Images [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) or search for images [here](https://cloud-images.ubuntu.com/locator/ec2/).
 
-**INSTANCETYPE**='t3.large' -- the instance class to use, it determines the processing power and speed for the EC2 server.
+**INSTANCETYPE**='t3a.micro' -- the instance class to use, it determines the processing power and speed for the EC2 server.
 
 **VPCID** -- the virtual private cloud to use. The default VPC for the account or profile will be used unless a different ID is assigned. 
 
-**SGNAME**=cnn-digital-fecproject -- the security group to use for the database, it will be created in the assigned VPC if it doesn't already exist.
+**SGNAME**=dockersg -- the security group to use for the database, it will be created in the assigned VPC if it doesn't already exist.
 
 To create and setup the application server, run the script aws_ec2_docker.sh.
 
@@ -51,3 +51,7 @@ The terminal will print out the values set for the server parameters, followed b
 It will take several minutes for the server to be created and have everything installed.
 
 Once the server is created, the terminal will print out a message similar to: i-0a123b456cd7e8910 is accepting SSH connections under ec2-1-23-456-789.compute-1.amazonaws.com, with the instance id and URL of the server that was just created. The terminal will also print out instructions for shortcut commands to connect to the server or to upload files.
+
+Although the server has been created, it needs a couple of minutes to install and setup Docker. You can monitor the installation progress by connecting to the server and reading the install log. Follow the instructions and enter 'connect' to log in to the server. Once connected, you can follow the setup progress by tailing the install log.
+```
+~/aws_ec2_docker$ tail -f 
