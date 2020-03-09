@@ -48,7 +48,9 @@ The variables and their corresponding default values are listed, along with a de
 
 **INSTANCETYPE**='t3a.micro' -- the instance class to use, it determines the processing power and speed for the EC2 server.
 
-**VPCID** -- the virtual private cloud to use. The default VPC for the account or profile will be used unless a different ID is assigned. 
+**VPCID** -- the virtual private cloud to use. The default VPC for the account or profile will be used unless a different ID is assigned.
+
+**SUBNETID** -- the subnet to use. The subnet of the assigned VPC will be used by default.
 
 **SGNAME**=dockersg -- the security group name to use for the server, it will be created in the assigned VPC if it doesn't already exist. The install script will also add a new rule to the firewall for the group, opening up port 22 for IP addresses within the installing client's subnet (255.255.255.0). To open other ports for access, assign them to the env var **valid_ports** before running the installation. For example, open ports 22 and 80 by typing the following command:
 ```
@@ -72,5 +74,10 @@ ubuntu@ip-xxx-xx-xx-xxx:~$ tail -f /var/log/instance-setup.log # the default pro
 ```
 
 The information will scroll by very quickly. Once the server is done setting everything up for the application, you'll be disconnected as the server reboots. Wait a few seconds for it to restart and you'll be able to join the server again with the 'connect' command.
+
+Once you've reconnected, make sure docker is installed by running the "hello-world" image.
+```
+ubuntu@ip-xxx-xx-xx-xxx:~$ docker run hello-world
+```
 
 Note that the server is firewalled; you'll only be able to access it from the subnet of the client computer you used for the installation. To give other users access, you can add their IP addresses to the security group for the server in the [AWS console](https://console.aws.amazon.com/ec2/v2/home?region=us-east-1#SecurityGroups:sort=desc:ipPermissionsIngress).
