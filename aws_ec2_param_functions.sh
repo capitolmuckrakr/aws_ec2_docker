@@ -42,10 +42,10 @@ function subnetid() { #select the subnet for the AWS account or profile if one i
     echo $SUBNETID
     }
 
-function instancetypeoption() { #Use the t3.large instance if no type is assigned
+function instancetypeoption() { #Use the t3a.micro instance if no type is assigned
     if [[ ! $INSTANCETYPE ]];
     then
-        INSTANCETYPE='t3.large'
+        INSTANCETYPE='t3a.micro'
         export INSTANCETYPE
     fi
     echo $INSTANCETYPE
@@ -66,7 +66,7 @@ function sgname() { #select or create a security group for the instance if one i
     fi
     if [[ ! $SGNAME ]];
     then
-        SGNAME=cnn-digital-fecproject
+        SGNAME=dockersg
     fi
     if [[ ! $profile ]];
     then
@@ -86,7 +86,7 @@ function sgname() { #select or create a security group for the instance if one i
     export SGID
     if [[ ! $valid_ports ]];
     then
-        valid_ports=( 22 80 443 )
+        valid_ports=( 22 )
     fi
     #make sure the firewall is open for the ports we want to access from our IP address
     for valid_port in "${valid_ports[@]}"

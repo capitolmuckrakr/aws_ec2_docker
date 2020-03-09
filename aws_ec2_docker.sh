@@ -13,8 +13,6 @@ source ./aws_ec2_param_functions.sh
 amiid
 vpcid
 subnetid
-export INSTANCETYPE='t3a.micro'
-export SGNAME=muckserver
 sgname
 
 export PEMNAME=$(echo $PEM | rev | cut -d'/' -f1 | rev | sed -e 's/[^a-z]//g' | sed 's/pem//') #derive the keyname from the filename without the .pem extension

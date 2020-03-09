@@ -14,7 +14,7 @@ then
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -yq 2>&1 >/dev/null
     apt-get -y -qq install docker-ce  >/dev/null
     usermod -aG docker ubuntu
-    curl -L https://raw.githubusercontent.com/docker/compose/1.24.1/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
+    curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose -o /etc/bash_completion.d/docker-compose
 fi
 
 #reboot the system
