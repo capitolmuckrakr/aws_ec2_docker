@@ -1,4 +1,4 @@
-This project will create a remote AWS EC2 instance running the latest LTS version of Ubuntu Linux. The latest version of Docker Community Edition will be installed on the instance and a docker user will be created. While AWS offers multiple services for running and managing containers, this project is meant to provide a simpler alternative for people who want to explore Docker but aren't sure how to start or just want to run a few containers but can't install Docker on their own computers.
+This project will create a remote AWS EC2 instance running the latest LTS version of Ubuntu Linux. [Docker Community Edition](https://docs.docker.com/install/linux/docker-ce/ubuntu/) will be installed on the instance and a docker user will be created. While AWS offers multiple services for running and managing containers, this project is meant to provide a simpler alternative for people who want to explore Docker but aren't sure how to start or just want to run a few containers but can't install Docker on their own computers.
 
 You'll need to create a new AWS account if you don't have one.
 
