@@ -51,6 +51,14 @@ function instancetypeoption() { #Use the t3a.micro instance if no type is assign
     echo $INSTANCETYPE
     }
 
+function blockvolumesize() { #Use a 10 GB drive if no size is assigned
+    if [[ ! $BLOCKVOLUMESIZE ]];
+    then
+        BLOCKVOLUMESIZE=10
+        export BLOCKVOLUMESIZE
+    fi
+    echo $BLOCKVOLUMESIZE
+    }
 
 function sgname() { #select or create a security group for the instance if one is not assigned.
     if [[ ! $VPCID ]];
