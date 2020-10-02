@@ -114,4 +114,5 @@ export -f amiid
 export -f vpcid
 export -f subnetid
 export -f instancetypeoption
+export -f blockvolumesize
 export -f sgname
